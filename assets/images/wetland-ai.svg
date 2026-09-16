@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="wetland-sky" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#081225"/>
+      <stop offset="50%" stop-color="#0e2439"/>
+      <stop offset="100%" stop-color="#06332c"/>
+    </linearGradient>
+    <linearGradient id="water-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#06b6d4" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.8"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.05"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" rx="16" fill="url(#wetland-sky)"/>
+
+  <!-- Satellite in Orbit (Top Right) -->
+  <g transform="translate(640, 65)">
+    <!-- Solar Panels -->
+    <rect x="-65" y="-12" width="40" height="24" rx="3" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <line x1="-52" y1="-12" x2="-52" y2="12" stroke="#38bdf8" stroke-width="1"/>
+    <rect x="25" y="-12" width="40" height="24" rx="3" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <line x1="38" y1="-12" x2="38" y2="12" stroke="#38bdf8" stroke-width="1"/>
+    <!-- Satellite Body -->
+    <rect x="-20" y="-18" width="40" height="36" rx="6" fill="#0f172a" stroke="#f8fafc" stroke-width="2"/>
+    <circle cx="0" cy="2" r="6" fill="#06b6d4"/>
+    <!-- Beam down towards Wetland -->
+    <polygon points="0,18 -340,310 40,310" fill="url(#beam)"/>
+  </g>
+
+  <!-- GIS Contour Grid Overlay -->
+  <g stroke="#38bdf8" stroke-width="0.75" stroke-opacity="0.25" stroke-dasharray="4 4">
+    <line x1="50" y1="100" x2="750" y2="100"/>
+    <line x1="50" y1="180" x2="750" y2="180"/>
+    <line x1="50" y1="260" x2="750" y2="260"/>
+    <line x1="50" y1="340" x2="750" y2="340"/>
+    <line x1="160" y1="50" x2="160" y2="400"/>
+    <line x1="320" y1="50" x2="320" y2="400"/>
+    <line x1="480" y1="50" x2="480" y2="400"/>
+    <line x1="640" y1="50" x2="640" y2="400"/>
+  </g>
+
+  <!-- Wetland Water Body Contour Shapes -->
+  <path d="M60 360 C180 320, 240 370, 360 330 C480 290, 560 360, 740 330 L740 430 L60 430 Z" fill="url(#water-grad)"/>
+  <path d="M100 380 C200 350, 300 390, 420 360 C540 330, 620 370, 700 360" stroke="#67e8f9" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+
+  <!-- AI Detection Bounding Boxes & Telemetry -->
+  <g transform="translate(230, 200)">
+    <rect width="180" height="90" rx="8" fill="#0284c7" fill-opacity="0.18" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="4 2"/>
+    <rect x="0" y="0" width="130" height="22" fill="#0284c7" rx="4"/>
+    <text x="65" y="15" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">NDVI WATER: 94.2%</text>
+    <circle cx="165" cy="15" r="4" fill="#10b981"/>
+    <text x="12" y="48" font-family="monospace" font-size="11" fill="#67e8f9">Area: 14.8 sq km</text>
+    <text x="12" y="72" font-family="monospace" font-size="11" fill="#93c5fd">Quality Index: High</text>
+  </g>
+
+  <g transform="translate(450, 160)">
+    <rect width="170" height="85" rx="8" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4 2"/>
+    <rect x="0" y="0" width="130" height="22" fill="#059669" rx="4"/>
+    <text x="65" y="15" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">CHANGE DETECTION</text>
+    <text x="12" y="48" font-family="monospace" font-size="11" fill="#6ee7b7">Status: Monitored</text>
+    <text x="12" y="70" font-family="monospace" font-size="11" fill="#93c5fd">Satellite: Sentinel-2</text>
+  </g>
+
+  <!-- IoT In-Situ Environmental Sensor Buoy -->
+  <g transform="translate(170, 315)">
+    <circle cx="0" cy="0" r="9" fill="#f59e0b" stroke="#ffffff" stroke-width="1.5"/>
+    <line x1="0" y1="-9" x2="0" y2="-24" stroke="#f59e0b" stroke-width="2"/>
+    <circle cx="0" cy="-26" r="3.5" fill="#ef4444"/>
+    <path d="M-12 -28 A 12 12 0 0 1 12 -28" stroke="#38bdf8" stroke-width="1.5" fill="none" stroke-dasharray="2 2"/>
+    <text x="0" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#f8fafc" text-anchor="middle" font-weight="700">IoT SENSOR</text>
+  </g>
+
+  <!-- Header Banner on Diagram -->
+  <g transform="translate(40, 35)">
+    <rect width="280" height="34" rx="8" fill="#0b0f19" fill-opacity="0.85" stroke="#38bdf8" stroke-width="1"/>
+    <text x="140" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#38bdf8" text-anchor="middle" letter-spacing="1">AI WETLAND OBSERVATORY</text>
+  </g>
+</svg>

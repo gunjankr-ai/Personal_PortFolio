@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#0b0f19"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" stroke="url(#grad)" stroke-width="2" stroke-opacity="0.8"/>
+  <circle cx="16" cy="16" r="3" fill="#06b6d4"/>
+  <circle cx="48" cy="48" r="3" fill="#8b5cf6"/>
+  <path d="M16 16 L28 28 M48 48 L36 36" stroke="url(#grad)" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <text x="32" y="41" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="url(#grad)" text-anchor="middle" letter-spacing="1">GK</text>
+</svg>

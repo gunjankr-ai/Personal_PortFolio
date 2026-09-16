@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="twin-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="60%" stop-color="#0e172a"/>
+      <stop offset="100%" stop-color="#111c44"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" rx="16" fill="url(#twin-bg)"/>
+
+  <!-- Perspective 3D Wireframe Grid (Digital Twin Matrix) -->
+  <g stroke="#38bdf8" stroke-opacity="0.22" stroke-width="1">
+    <line x1="400" y1="150" x2="0" y2="450"/>
+    <line x1="400" y1="150" x2="120" y2="450"/>
+    <line x1="400" y1="150" x2="240" y2="450"/>
+    <line x1="400" y1="150" x2="350" y2="450"/>
+    <line x1="400" y1="150" x2="450" y2="450"/>
+    <line x1="400" y1="150" x2="560" y2="450"/>
+    <line x1="400" y1="150" x2="680" y2="450"/>
+    <line x1="400" y1="150" x2="800" y2="450"/>
+    <line x1="320" y1="180" x2="480" y2="180"/>
+    <line x1="250" y1="220" x2="550" y2="220"/>
+    <line x1="180" y1="270" x2="620" y2="270"/>
+    <line x1="100" y1="330" x2="700" y2="330"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+  </g>
+
+  <!-- City Skyline Silhouette (Urban Pressure) -->
+  <g fill="#1e293b" opacity="0.85">
+    <rect x="80" y="160" width="40" height="120" rx="2"/>
+    <rect x="130" y="130" width="55" height="150" rx="2"/>
+    <rect x="195" y="175" width="35" height="105" rx="2"/>
+    <rect x="570" y="150" width="45" height="130" rx="2"/>
+    <rect x="625" y="120" width="50" height="160" rx="2"/>
+    <rect x="685" y="170" width="35" height="110" rx="2"/>
+  </g>
+
+  <!-- Digital Twin Virtual Water Mesh (Center) -->
+  <path d="M260 300 C320 280, 480 280, 540 300 C580 340, 520 390, 400 390 C280 390, 220 340, 260 300 Z" fill="#06b6d4" fill-opacity="0.22" stroke="#06b6d4" stroke-width="2"/>
+  
+  <!-- Digital Twin Scanning Ring -->
+  <ellipse cx="400" cy="335" rx="160" ry="55" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <ellipse cx="400" cy="335" rx="100" ry="35" stroke="#38bdf8" stroke-width="1.5"/>
+
+  <!-- Holographic Metric Cards -->
+  <g transform="translate(80, 50)">
+    <rect width="200" height="65" rx="10" fill="#0f172a" fill-opacity="0.9" stroke="#38bdf8" stroke-width="1.5"/>
+    <circle cx="22" cy="22" r="6" fill="#38bdf8"/>
+    <text x="38" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#f8fafc">DIGITAL TWIN SIM</text>
+    <text x="20" y="48" font-family="monospace" font-size="11" fill="#94a3b8">Hydrology: Predictive 98%</text>
+  </g>
+
+  <g transform="translate(520, 50)">
+    <rect width="210" height="65" rx="10" fill="#0f172a" fill-opacity="0.9" stroke="#10b981" stroke-width="1.5"/>
+    <circle cx="22" cy="22" r="6" fill="#10b981"/>
+    <text x="38" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#f8fafc">EARLY WARNING ALERT</text>
+    <text x="20" y="48" font-family="monospace" font-size="11" fill="#6ee7b7">Encroachment: 0.2% Alert</text>
+  </g>
+
+  <!-- AI Prediction Vector Lines -->
+  <g stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 2">
+    <line x1="220" y1="200" x2="280" y2="290"/>
+    <circle cx="280" cy="290" r="4" fill="#f59e0b"/>
+    <line x1="580" y1="200" x2="520" y2="290"/>
+    <circle cx="520" cy="290" r="4" fill="#f59e0b"/>
+  </g>
+
+  <!-- Title Badge -->
+  <g transform="translate(260, 395)">
+    <rect width="280" height="32" rx="16" fill="#0b0f19" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="140" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#c084fc" text-anchor="middle" letter-spacing="1">URBAN WETLAND GUARDIAN</text>
+  </g>
+</svg>

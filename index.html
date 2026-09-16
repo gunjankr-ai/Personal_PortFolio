@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gunjan Kumar | B.Tech CSE & AI Enthusiast | Portfolio</title>
+  
+  <!-- SEO & Social Metadata -->
+  <meta name="description" content="Personal portfolio of Gunjan Kumar, Computer Science Engineering student passionate about Artificial Intelligence, Data Analytics, Environmental AI, and Research Innovation.">
+  <meta name="keywords" content="Gunjan Kumar, AI, Artificial Intelligence, Data Analytics, B.Tech CSE, Environmental AI, Wetland Monitoring, Remote Sensing, QGIS, Machine Learning, Portfolio">
+  <meta name="author" content="Gunjan Kumar">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gunjan Kumar | B.Tech CSE Student & AI Researcher">
+  <meta property="og:description" content="B.Tech Computer Science Engineering student passionate about Artificial Intelligence, Data Analytics, Environmental Monitoring, and Research Innovation.">
+  <meta property="og:image" content="assets/images/profile-avatar.svg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Gunjan Kumar",
+    "jobTitle": "B.Tech Computer Science Engineering Student",
+    "description": "Aspiring AI and Technology professional specializing in Artificial Intelligence, Data Analytics, and Environmental AI Research.",
+    "knowsAbout": ["Artificial Intelligence", "Machine Learning", "Data Analytics", "GIS", "Wetland Monitoring", "Python", "Computer Vision"]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ========================================================================
+       STICKY NAVBAR
+       ======================================================================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="brand-logo" aria-label="Gunjan Kumar Homepage">
+        <span class="brand-monogram">GK</span>
+        <span class="brand-name">Gunjan Kumar</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#research" class="nav-link">Research</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#certifications" class="nav-link">Certifications</a></li>
+          <li><a href="#resume" class="nav-link">Resume</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Color Theme" title="Toggle Light/Dark Mode">
+          <!-- Moon Icon (Dark Mode Active) -->
+          <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <!-- Sun Icon (Light Mode Active) -->
+          <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <!-- Let's Connect Button -->
+        <a href="#contact" class="btn btn-primary btn-sm">Let's Connect</a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open Navigation Menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       1. HERO SECTION & SPECIAL "AI CAREER & RESEARCH PROFILE"
+       ======================================================================== -->
+  <section id="home" class="hero-section">
+    <!-- Interactive Canvas Particle Field -->
+    <canvas id="hero-canvas"></canvas>
+
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left: Text Introduction & Actions -->
+        <div class="hero-content-col">
+          <div class="hero-badge-strip">
+            <div class="status-indicator">
+              <span class="status-dot"></span>
+              <span>Available for Research & Opportunities</span>
+            </div>
+          </div>
+
+          <h1 class="hero-name">
+            Hi, I'm <span class="gradient-text">Gunjan Kumar</span>
+          </h1>
+
+          <p class="hero-headline">
+            B.Tech CSE Student | AI &amp; Data Analytics Enthusiast | Research &amp; Innovation
+          </p>
+
+          <p class="hero-intro">
+            I am a Computer Science Engineering student passionate about Artificial Intelligence, Data Analytics, Research, and technology-driven solutions.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              View My Projects
+            </a>
+            <a href="#resume" class="btn btn-secondary trigger-resume-download">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Download Resume
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              Contact Me
+            </a>
+          </div>
+
+          <!-- SPECIAL FEATURE: AI Career & Research Profile Visual Card -->
+          <div class="ai-career-card">
+            <div class="career-card-header">
+              <div class="career-card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path></svg>
+                <span>AI Career &amp; Research Profile</span>
+              </div>
+              <span class="career-card-badge">Core Pillars</span>
+            </div>
+
+            <div class="career-pillars-list">
+              <div class="pillar-item">
+                <div class="pillar-info">
+                  <div class="pillar-icon">🤖</div>
+                  <div>
+                    <div class="pillar-name">AI &amp; Machine Learning</div>
+                    <div class="pillar-tag">Predictive Modeling &bull; Deep Learning</div>
+                  </div>
+                </div>
+                <span class="badge badge-ai">Core Area</span>
+              </div>
+
+              <div class="pillar-item">
+                <div class="pillar-info">
+                  <div class="pillar-icon">📊</div>
+                  <div>
+                    <div class="pillar-name">Data Analytics</div>
+                    <div class="pillar-tag">Data Exploration &bull; Visualization</div>
+                  </div>
+                </div>
+                <span class="badge badge-tech">Analytical</span>
+              </div>
+
+              <div class="pillar-item">
+                <div class="pillar-info">
+                  <div class="pillar-icon">🌿</div>
+                  <div>
+                    <div class="pillar-name">Environmental AI</div>
+                    <div class="pillar-tag">Conservation &bull; Ecosystem Health</div>
+                  </div>
+                </div>
+                <span class="badge badge-ai">Impact</span>
+              </div>
+
+              <div class="pillar-item">
+                <div class="pillar-info">
+                  <div class="pillar-icon">🔬</div>
+                  <div>
+                    <div class="pillar-name">Research &amp; Innovation</div>
+                    <div class="pillar-tag">Scientific Methodology &bull; Prototyping</div>
+                  </div>
+                </div>
+                <span class="badge badge-tech">Academic</span>
+              </div>
+
+              <div class="pillar-item">
+                <div class="pillar-info">
+                  <div class="pillar-icon">🛰️</div>
+                  <div>
+                    <div class="pillar-name">GIS &amp; Satellite Analysis</div>
+                    <div class="pillar-tag">Remote Sensing &bull; Spatial Change Detection</div>
+                  </div>
+                </div>
+                <span class="badge badge-ai">Geospatial</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Professional Profile Avatar Visual -->
+        <div class="hero-visual-wrapper">
+          <div class="avatar-container">
+            <div class="avatar-inner">
+              <img src="assets/images/profile-avatar.jpg" alt="Gunjan Kumar - Professional Portrait" class="avatar-img">
+            </div>
+          </div>
+          <div class="placeholder-note" style="text-align: center; max-width: 280px;">
+            <span>Gunjan Kumar Sah | AI Engineer</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       2. ABOUT ME SECTION
+       ======================================================================== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">About Me</span>
+        <h2 class="section-title">Bridging Computer Science with <span class="gradient-text">Real-World Impact</span></h2>
+        <p class="section-subtitle">
+          Driven by curiosity and a commitment to applying technology toward environmental conservation and intelligent solutions.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text-col">
+          <p>
+            I am a <strong>Computer Science Engineering student</strong> passionate about Artificial Intelligence, Data Analytics, Research, and technology-driven solutions. My academic focus centers on understanding computational foundations and applying modern machine learning techniques to tackle complex real-world challenges.
+          </p>
+          <p>
+            I have a strong interest in <strong>environmental and social impact</strong>, exploring how satellite imagery, GIS-based spatial analysis, and predictive AI can monitor vital ecosystems like wetlands. Through data-driven exploration, I aim to transform raw environmental telemetry into actionable conservation insights.
+          </p>
+          <p>
+            As an aspiring technologist and researcher, I continuously strengthen my foundation in algorithms, data structures, and scientific methodology, eager to collaborate on innovative projects, research initiatives, and impactful internships.
+          </p>
+
+          <div class="about-highlights">
+            <div class="about-metric-card">
+              <div class="about-metric-label">Primary Pursuit</div>
+              <div class="about-metric-val">B.Tech in CSE</div>
+            </div>
+            <div class="about-metric-card">
+              <div class="about-metric-label">Research Interest</div>
+              <div class="about-metric-val">Environmental AI &amp; GIS</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Quick Facts Card -->
+        <div class="facts-panel">
+          <h3 class="facts-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            Academic &amp; Profile Summary
+          </h3>
+
+          <div class="fact-row">
+            <span class="fact-label">Education</span>
+            <span class="fact-value">B.Tech – Computer Science Engineering</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Institution</span>
+            <span class="fact-value fact-editable">MUIT, Lucknow</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Timeline</span>
+            <span class="fact-value fact-editable">2024-2028</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Current Academic Focus</span>
+            <span class="fact-value">Data Structures, Algorithms &amp; AI</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Location</span>
+            <span class="fact-value fact-editable">Lucknow, Uttar Pradesh</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Open For</span>
+            <span class="fact-value">Internships, Research &amp; Projects</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3. SKILLS SECTION
+       ======================================================================== -->
+  <section id="skills" class="section" style="background: rgba(255,255,255,0.01);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Technical Competencies</span>
+        <h2 class="section-title">Skills &amp; <span class="gradient-text">Domains of Interest</span></h2>
+        <p class="section-subtitle">
+          Core technical competencies, analytical frameworks, and research tools actively used in coursework and applied projects.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+        
+        <!-- Category 1: Programming & Technical -->
+        <div class="skill-category-card">
+          <div class="category-header">
+            <div class="category-icon-box">💻</div>
+            <div>
+              <h3 class="category-title">Programming &amp; Technical</h3>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Core computational foundations</p>
+            </div>
+          </div>
+          <div class="skills-tags-wrap">
+            <span class="skill-pill"><span class="skill-dot"></span>Python</span>
+            <span class="skill-pill"><span class="skill-dot"></span>JavaScript</span>
+            <span class="skill-pill"><span class="skill-dot"></span>Basic Data Structures &amp; Algorithms</span>
+            <span class="skill-pill"><span class="skill-dot"></span>SQL</span>
+            <span class="skill-pill"><span class="skill-dot"></span>HTML</span>
+            <span class="skill-pill"><span class="skill-dot"></span>CSS</span>
+          </div>
+        </div>
+
+        <!-- Category 2: AI & Data -->
+        <div class="skill-category-card">
+          <div class="category-header">
+            <div class="category-icon-box">🧠</div>
+            <div>
+              <h3 class="category-title">AI &amp; Data</h3>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Machine intelligence &amp; analytical models</p>
+            </div>
+          </div>
+          <div class="skills-tags-wrap">
+            <span class="skill-pill"><span class="skill-dot"></span>Artificial Intelligence</span>
+            <span class="skill-pill"><span class="skill-dot"></span>Machine Learning</span>
+            <span class="skill-pill"><span class="skill-dot"></span>Data Analytics</span>
+            <span class="skill-pill"><span class="skill-dot"></span>Generative AI</span>
+            <span class="skill-pill"><span class="skill-dot"></span>Computer Vision</span>
+            <span class="skill-pill"><span class="skill-dot"></span>Data Visualization</span>
+          </div>
+        </div>
+
+        <!-- Category 3: Tools & Platforms -->
+        <div class="skill-category-card">
+          <div class="category-header">
+            <div class="category-icon-box">🛠️</div>
+            <div>
+              <h3 class="category-title">Tools &amp; Platforms</h3>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Developer workflows and analytical software</p>
+            </div>
+          </div>
+          <div class="skills-tags-wrap">
+            <span class="skill-pill"><span class="skill-dot"></span>Excel</span>
+            <span class="skill-pill"><span class="skill-dot"></span>Power BI</span>
+            <span class="skill-pill"><span class="skill-dot"></span>Jupyter Notebook</span>
+            <span class="skill-pill"><span class="skill-dot"></span>Git / GitHub</span>
+            <span class="skill-pill"><span class="skill-dot"></span>QGIS</span>
+            <span class="skill-pill"><span class="skill-dot"></span>Figma</span>
+          </div>
+        </div>
+
+        <!-- Category 4: Research Specialization -->
+        <div class="skill-category-card">
+          <div class="category-header">
+            <div class="category-icon-box">🛰️</div>
+            <div>
+              <h3 class="category-title">Research Specialization</h3>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Environmental sensing and spatial analytics</p>
+            </div>
+          </div>
+          <div class="skills-tags-wrap">
+            <span class="skill-pill"><span class="skill-dot"></span>AI-based Environmental Monitoring</span>
+            <span class="skill-pill"><span class="skill-dot"></span>Satellite Image Analysis</span>
+            <span class="skill-pill"><span class="skill-dot"></span>Wetland Monitoring</span>
+            <span class="skill-pill"><span class="skill-dot"></span>Change Detection</span>
+            <span class="skill-pill"><span class="skill-dot"></span>GIS-based Analysis</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4. FEATURED PROJECTS SECTION
+       ======================================================================== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Applied Work</span>
+        <h2 class="section-title">Featured <span class="gradient-text">Projects &amp; Concepts</span></h2>
+        <p class="section-subtitle">
+          Explorations in artificial intelligence, spatial data systems, and environmental technology.
+        </p>
+      </div>
+
+      <!-- Project Filter Buttons -->
+      <div class="projects-filter-bar">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="ai-env">AI &amp; Environmental</button>
+        <button class="filter-btn" data-filter="digital-twin">Digital Twin &amp; Concept</button>
+        <button class="filter-btn" data-filter="future">Upcoming Project</button>
+      </div>
+
+      <div class="projects-list">
+        
+        <!-- PROJECT 1: Wetland Monitoring and Conservation -->
+        <article class="project-card-large" data-category="ai-env">
+          <div class="project-visual-col">
+            <img src="assets/images/wetland-ai.svg" alt="Artificial Intelligence for Wetland Monitoring Diagram" class="project-img">
+          </div>
+
+          <div class="project-info-col">
+            <div>
+              <div class="project-header-tags">
+                <span class="badge badge-ai">Environmental AI</span>
+                <span class="badge badge-tech">Satellite Remote Sensing</span>
+              </div>
+              <h3 class="project-title">Artificial Intelligence for Wetland Monitoring and Conservation</h3>
+              <p class="project-subtitle">AI &amp; Satellite Multi-Sensor Ecological Preservation Framework</p>
+
+              <div class="problem-solution-box">
+                <div class="ps-item">
+                  <span class="ps-heading">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    The Problem
+                  </span>
+                  <p class="ps-text">
+                    Wetland ecosystems are rapidly shrinking due to unmonitored human encroachment, climate fluctuations, and runoff pollution, often undetected until irreversible ecological damage occurs.
+                  </p>
+                </div>
+                <div class="ps-item">
+                  <span class="ps-heading">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    The Solution
+                  </span>
+                  <p class="ps-text">
+                    An AI-based approach for monitoring wetland ecosystems using satellite imagery, environmental sensors, GIS, and machine learning to identify environmental changes and support conservation decisions.
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-features-list">
+                <div class="feature-item">
+                  <span class="feature-check">✔</span>
+                  <span>Automated surface water boundary delineation using multi-spectral satellite imagery</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-check">✔</span>
+                  <span>Temporal change detection tracking seasonal water shrinkage and vegetation indices</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-check">✔</span>
+                  <span>Integration with GIS and IoT environmental sensor metrics for data-driven decisions</span>
+                </div>
+              </div>
+
+              <div class="project-tech-badges">
+                <span class="skill-pill">AI</span>
+                <span class="skill-pill">Machine Learning</span>
+                <span class="skill-pill">Computer Vision</span>
+                <span class="skill-pill">Satellite Imagery</span>
+                <span class="skill-pill">GIS / QGIS</span>
+                <span class="skill-pill">IoT Sensors</span>
+                <span class="skill-pill">Python</span>
+              </div>
+            </div>
+
+            <div class="project-btn-group">
+              <a href="https://github.com/gunjan-kumar-sah/Wetland-Project" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" title="Repository link [Editable placeholder]">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                GitHub
+              </a>
+              <a href="#projects" class="btn btn-outline btn-sm trigger-paper-modal">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                View Research Synopsis
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 2: Urban Wetland Guardian -->
+        <article class="project-card-large reverse-layout" data-category="digital-twin">
+          <div class="project-visual-col">
+            <img src="assets/images/digital-twin.svg" alt="Urban Wetland Guardian Digital Twin Concept Architecture" class="project-img">
+          </div>
+
+          <div class="project-info-col">
+            <div>
+              <div class="project-header-tags">
+                <span class="badge badge-tech">Digital Twin</span>
+                <span class="badge badge-ai">Predictive Analytics</span>
+              </div>
+              <h3 class="project-title">Urban Wetland Guardian</h3>
+              <p class="project-subtitle">An AI Digital Twin That Predicts and Prevents the Disappearance of City Wetlands</p>
+
+              <div class="problem-solution-box">
+                <div class="ps-item">
+                  <span class="ps-heading">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    The Problem
+                  </span>
+                  <p class="ps-text">
+                    Urban sprawl, uncoordinated civil construction, and stormwater diversion silently eliminate urban retention basins and marshes without timely predictive feedback.
+                  </p>
+                </div>
+                <div class="ps-item">
+                  <span class="ps-heading">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    The Solution
+                  </span>
+                  <p class="ps-text">
+                    An AI-powered concept that combines satellite monitoring, environmental sensors, GIS visualization, predictive analytics, and a digital twin to monitor urban wetlands and provide early warnings about environmental changes.
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-features-list">
+                <div class="feature-item">
+                  <span class="feature-check">✔</span>
+                  <span>Digital twin simulation framework mirroring real-world hydrology and soil moisture</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-check">✔</span>
+                  <span>Predictive warning alerts for municipal authorities before ecological tipping points</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-check">✔</span>
+                  <span>Interactive 3D/GIS spatial data visualization of urban encroachment zones</span>
+                </div>
+              </div>
+
+              <div class="project-tech-badges">
+                <span class="skill-pill">Digital Twin Modeling</span>
+                <span class="skill-pill">Predictive Analytics</span>
+                <span class="skill-pill">GIS Visualization</span>
+                <span class="skill-pill">Satellite Monitoring</span>
+                <span class="skill-pill">Environmental Sensors</span>
+                <span class="skill-pill">Python</span>
+              </div>
+            </div>
+
+            <div class="project-btn-group">
+              <a href="https://github.com/gunjankr-ai" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                GitHub
+              </a>
+              <button class="btn btn-outline btn-sm" onclick="alert('Concept Preview: Detailed digital twin telemetry and simulation models can be added here.');">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Concept Demo
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 3: Future Editable Placeholder -->
+        <article class="project-card-large" data-category="future">
+          <div class="project-visual-col">
+            <img src="assets/images/project-future.svg" alt="Future Project Blueprint Placeholder" class="project-img">
+          </div>
+
+          <div class="project-info-col">
+            <div>
+              <div class="project-header-tags">
+                <span class="badge badge-tech">[Project 3 Category]</span>
+                <span class="badge badge-ai">[Editable Placeholder]</span>
+              </div>
+              <h3 class="project-title">[Add Your Future Project Title]</h3>
+              <p class="project-subtitle">[Add Subtitle / One-line summary of what you built]</p>
+
+              <div class="problem-solution-box">
+                <div class="ps-item">
+                  <span class="ps-heading">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    The Problem
+                  </span>
+                  <p class="ps-text">
+                    [Describe the problem or challenge this project addresses. Easily edit this section in index.html].
+                  </p>
+                </div>
+                <div class="ps-item">
+                  <span class="ps-heading">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    The Solution
+                  </span>
+                  <p class="ps-text">
+                    [Describe your technology solution, algorithm, data pipeline, or software implementation].
+                  </p>
+                </div>
+              </div>
+
+              <div class="project-features-list">
+                <div class="feature-item">
+                  <span class="feature-check">✔</span>
+                  <span>[Add Key Feature 1 - e.g. Data processing or machine learning model]</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-check">✔</span>
+                  <span>[Add Key Feature 2 - e.g. User interface or dashboard integration]</span>
+                </div>
+              </div>
+
+              <div class="project-tech-badges">
+                <span class="skill-pill">[Python / Tech 1]</span>
+                <span class="skill-pill">[Framework 2]</span>
+                <span class="skill-pill">[Tool 3]</span>
+              </div>
+            </div>
+
+            <div class="project-btn-group">
+              <a href="#" class="btn btn-secondary btn-sm" onclick="event.preventDefault(); alert('Placeholder: Link your GitHub repository here in index.html.');">
+                GitHub [Placeholder]
+              </a>
+              <a href="#" class="btn btn-outline btn-sm" onclick="event.preventDefault(); alert('Placeholder: Link your Live Demo URL here in index.html.');">
+                Live Demo [Placeholder]
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. DEDICATED RESEARCH SECTION
+       ======================================================================== -->
+  <section id="research" class="section" style="background: rgba(6, 182, 212, 0.02);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Scientific Inquiry</span>
+        <h2 class="section-title">Research &amp; <span class="gradient-text">Innovation</span></h2>
+        <p class="section-subtitle">
+          Methodological design, remote sensing integration, and machine learning architectures for ecological conservation.
+        </p>
+      </div>
+
+      <div class="research-container">
+        
+        <!-- Highlight Header -->
+        <div class="research-spotlight-header">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <span class="badge badge-ai" style="margin-bottom: 0.75rem;">Spotlight Investigation</span>
+              <h3 class="research-spotlight-title">Artificial Intelligence for Wetland Monitoring and Conservation</h3>
+              <p style="color: var(--text-secondary); max-width: 750px;">
+                An integrated framework coupling multi-temporal optical/SAR satellite data with deep learning segmentation to assess wetland surface dynamics and provide timely early warnings.
+              </p>
+            </div>
+            <button class="btn btn-primary trigger-paper-modal">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              View Research Paper [Placeholder]
+            </button>
+          </div>
+        </div>
+
+        <!-- Research 2x2 Breakdown Grid -->
+        <div class="research-breakdown-grid">
+          
+          <div class="research-card-block">
+            <h4 class="research-card-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+              Research Objective
+            </h4>
+            <p class="research-card-body">
+              To formulate an automated, scalable pipeline capable of continuously tracking spatial water boundaries, identifying vegetative encroachment, and predicting wetland degradation using accessible satellite feeds and machine learning.
+            </p>
+          </div>
+
+          <div class="research-card-block">
+            <h4 class="research-card-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+              Problem Statement
+            </h4>
+            <p class="research-card-body">
+              Traditional on-site ecological surveys are cost-prohibitive, intermittent, and struggle with difficult-to-access terrain. By the time visual depletion is recognized on the ground, critical biodiversity buffers are already irreversibly degraded.
+            </p>
+          </div>
+
+          <div class="research-card-block">
+            <h4 class="research-card-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+              AI/ML &amp; Technical Components
+            </h4>
+            <p class="research-card-body">
+              <strong>Satellite Data:</strong> Sentinel-2 multi-spectral bands (NIR, SWIR, Red)<br>
+              <strong>Image Processing:</strong> Atmospheric correction &amp; cloud masking<br>
+              <strong>AI/ML Models:</strong> Convolutional Segmentation &amp; Random Forests<br>
+              <strong>GIS &amp; Sensors:</strong> QGIS hydrological layer integration &amp; IoT sensor validation
+            </p>
+          </div>
+
+          <div class="research-card-block">
+            <h4 class="research-card-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              Expected Impact
+            </h4>
+            <p class="research-card-body">
+              Provides municipal and environmental bodies with an open-access, automated early warning mechanism. Reduces ground verification response times from months to days, shielding critical natural flood buffers and biodiversity habitats.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- ATTRACTIVE INTERACTIVE RESEARCH WORKFLOW VISUALIZATION -->
+        <div class="workflow-section-wrap">
+          <div class="workflow-title-bar">
+            <h4>Research Workflow Pipeline</h4>
+            <p>Click on any node in the pipeline below to inspect the methodology step:</p>
+          </div>
+
+          <!-- 8 Pipeline Nodes -->
+          <div class="workflow-nodes-container" id="workflow-nodes-container">
+            <!-- Populated interactively by research-flow.js -->
+          </div>
+
+          <!-- Dynamic Step Detail Box -->
+          <div class="workflow-detail-display" id="workflow-detail-box">
+            <div>
+              <span class="badge badge-tech" id="workflow-step-badge" style="margin-bottom: 0.5rem;">Step 01 of 08</span>
+              <h4 id="workflow-step-title" style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.35rem;">Satellite Data</h4>
+              <p class="workflow-detail-text" id="workflow-step-desc">
+                Harvesting optical and multi-spectral imagery from Sentinel-2 and Landsat missions alongside high-resolution temporal feeds.
+              </p>
+            </div>
+            <div style="flex-shrink: 0;">
+              <span class="badge badge-ai">Pipeline Active</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. EDUCATION TIMELINE
+       ======================================================================== -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Academic Background</span>
+        <h2 class="section-title">Education &amp; <span class="gradient-text">Foundations</span></h2>
+        <p class="section-subtitle">
+          Academic qualifications, theoretical coursework, and core principles in computer science.
+        </p>
+      </div>
+
+      <div class="timeline">
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-degree">B.Tech – Computer Science Engineering</h3>
+                <p class="timeline-institution">Maharishi University of Management and Technology, Lucknow</p>
+              </div>
+              <span class="timeline-period">2024 - 2028</span>
+            </div>
+
+            <div class="timeline-details-grid">
+              <div>
+                <span class="detail-block-title">CGPA / Performance</span>
+                <p class="detail-block-content fact-editable" style="display: inline-block;">
+                  8.5 / 10
+                </p>
+              </div>
+              <div>
+                <span class="detail-block-title">Relevant Coursework</span>
+                <p class="detail-block-content fact-editable">
+                  [Data Structures &amp; Algorithms, DBMS, Operating Systems, Computer Networks, AI/ML, Mathematics]
+                </p>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+              <span class="detail-block-title">Academic Achievements / Honors</span>
+              <p class="detail-block-content fact-editable">
+                School - level Running , First Prize in Running Competition, and other academic achievements can be listed here.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7. CERTIFICATIONS SECTION
+       ======================================================================== -->
+  <section id="certifications" class="section" style="background: rgba(255,255,255,0.01);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Continuous Learning</span>
+        <h2 class="section-title">Certifications &amp; <span class="gradient-text">Credentials</span></h2>
+        <p class="section-subtitle">
+          Professional development certifications and verified specialized courses.
+        </p>
+      </div>
+
+      <div class="cert-grid">
+        
+        <!-- Cert Card 1 Placeholder -->
+        <div class="cert-card">
+          <div>
+            <div class="cert-badge-top">📜</div>
+            <h3 class="cert-title">Introduction To Generative AI Studio</h3>
+            <p class="cert-issuer">Issuing Organization: Google Cloud</p>
+            <p class="cert-date">Date: August 2026</p>
+          </div>
+          <div>
+            <a href="https://drive.google.com/file/d/17WBNq1k2zPhZMMOIn5NS4lo6GaDvWq8S/view?usp=sharing" class="btn btn-outline btn-sm" onclick="event.preventDefault(); alert('Placeholder: Link your credential or certificate verification URL here.');">
+              View Credential
+            </a>
+          </div>
+        </div>
+
+        <!-- Cert Card 2 Placeholder -->
+        <div class="cert-card">
+          <div>
+            <div class="cert-badge-top">📜</div>
+            <h3 class="cert-title">Al - Data Engineering Analyst</h3>
+            <p class="cert-issuer">Issuing Organization: nasscom</p>
+            <p class="cert-date">Date: August 2026</p>
+          </div>
+          <div>
+            <a href="https://drive.google.com/file/d/1_n5SgdHJjS2lqpQb2iHIHo4JhMdotDfV/view" class="btn btn-outline btn-sm" onclick="event.preventDefault(); alert('Placeholder: Link your credential or certificate verification URL here.');">
+              View Credential
+            </a>
+          </div>
+        </div>
+
+        <!-- Cert Card 3 Placeholder -->
+        <div class="cert-card">
+          <div>
+            <div class="cert-badge-top">📜</div>
+            <h3 class="cert-title">
+Mastering Power BI: Data Analysis and Dashboard Creation</h3>
+            <p class="cert-issuer">Issuing Organization: PHN Technology Pvt Ltd</p>
+            <p class="cert-date">Date: August 2026</p>
+          </div>
+          <div>
+            <a href="https://drive.google.com/file/d/1REEiZjHcuJv183JGgLRoaaPXI_ades1n/view" class="btn btn-outline btn-sm" onclick="event.preventDefault(); alert('Placeholder: Link your credential or certificate verification URL here.');">
+              View Credential
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8. EXPERIENCE / INTERNSHIPS SECTION
+       ======================================================================== -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Professional Exposure</span>
+        <h2 class="section-title">Experience &amp; <span class="gradient-text">Internships</span></h2>
+        <p class="section-subtitle">
+          Practical application of engineering principles through research, industry training, and hands-on projects.
+        </p>
+      </div>
+
+      <div class="experience-banner-card">
+        <div class="experience-banner-icon">🚀</div>
+        <p class="experience-banner-quote">
+          "Currently building practical experience through projects, research, certifications, and technology initiatives."
+        </p>
+        <p class="experience-banner-note">
+          Actively seeking summer internship, research assistantship, and collaborative technology roles where I can contribute to AI, Data Analytics, and software engineering.
+        </p>
+
+        <div style="margin-top: 2rem;">
+          <a href="#contact" class="btn btn-primary">
+            Discuss an Opportunity
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       9. ACHIEVEMENTS SECTION
+       ======================================================================== -->
+  <section id="achievements" class="section" style="background: rgba(255,255,255,0.01);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Recognitions &amp; Milestones</span>
+        <h2 class="section-title">Honors &amp; <span class="gradient-text">Achievements</span></h2>
+        <p class="section-subtitle">
+          Recognitions from hackathons, workshops, technical presentations, and academic competitions.
+        </p>
+      </div>
+
+      <div class="achievements-grid">
+        
+        <!-- Achievement 1 -->
+        <div class="achievement-card">
+          <div class="achievement-icon">🏆</div>
+          <span class="achievement-type">Hackathon / Innovation</span>
+          <h3 class="achievement-title">Web Development</h3>
+          <p class="achievement-desc">
+            IEEE 2025 Hackethon Failure to Success Hackathon, where I developed a web application for real-time environmental data visualization and received recognition for innovative design.
+          </p>
+        </div>
+
+        <!-- Achievement 2 -->
+        <div class="achievement-card">
+          <div class="achievement-icon">🎤</div>
+          <span class="achievement-type">Research Presentation / Workshop</span>
+          <h3 class="achievement-title">Technical Paper</h3>
+          <p class="achievement-desc">
+            Artificial Intelligence for Wetland Monitoring and Conservation.
+          </p>
+        </div>
+
+        <!-- Achievement 3 -->
+        <div class="achievement-card">
+          <div class="achievement-icon">⭐</div>
+          <span class="achievement-type">Academic / Competition</span>
+          <h3 class="achievement-title">Coding Contest</h3>
+          <p class="achievement-desc">
+            Coding challenge rank.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       10. RESUME SECTION
+       ======================================================================== -->
+  <section id="resume" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Curriculum Vitae</span>
+        <h2 class="section-title">Professional <span class="gradient-text">Resume Overview</span></h2>
+        <p class="section-subtitle">
+          A consolidated overview of education, technical competencies, projects, and research pursuits.
+        </p>
+      </div>
+
+      <div class="resume-preview-box">
+        <!-- Top Toolbar -->
+        <div class="resume-header-bar">
+          <div>
+            <span style="font-weight: 700; color: var(--text-primary);">Gunjan Kumar – Resume Summary</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Updated for 2026 Academic &amp; Career Review</span>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <button class="btn btn-primary btn-sm trigger-resume-download">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Download Resume
+            </button>
+            <button class="btn btn-secondary btn-sm" onclick="window.print()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              Print / Save PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- Clean Resume Paper Content View -->
+        <div class="resume-paper-view">
+          
+          <div style="margin-bottom: 2rem; border-bottom: 2px solid var(--border-highlight); padding-bottom: 1.5rem;">
+            <h2 style="font-size: 2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.25rem;">GUNJAN KUMAR SAH</h2>
+            <p style="font-size: 1.05rem; font-weight: 600; color: var(--text-accent); margin-bottom: 0.5rem;">
+              B.Tech Computer Science Engineering Student | AI &amp; Data Analytics Enthusiast
+            </p>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">
+              Email: gunjansah63@gmail.com &bull; LinkedIn: linkedin.com/in/gunjan-kumar-sah-3b0b28435 &bull; GitHub: https://github.com/gunjankr-ai
+            </p>
+          </div>
+
+          <!-- Career Summary -->
+          <h4 class="resume-section-heading">Career Summary</h4>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+            Computer Science Engineering student passionate about Artificial Intelligence, Data Analytics, Research, and technology-driven solutions. Dedicated to applying algorithmic problem solving, machine learning models, and spatial data analytics toward environmental sustainability, digital twin architecture, and impactful software engineering.
+          </p>
+
+          <!-- Education -->
+          <h4 class="resume-section-heading">Education</h4>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+            <strong style="color: var(--text-primary);">B.Tech in Computer Science Engineering</strong>
+            <span style="font-family: var(--font-mono); color: var(--text-accent);">2024-2028</span>
+          </div>
+          <p style="color: var(--text-secondary); margin-bottom: 0.25rem;">Institution: Maharishi University of Information Technology, Lucknow</p>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">
+            CGPA: 8.5/10 &bull; Relevant Coursework: Data Structures, Algorithms, DBMS, Operating Systems, Machine Learning
+          </p>
+
+          <!-- Skills Summary -->
+          <h4 class="resume-section-heading">Technical Skills</h4>
+          <p style="color: var(--text-secondary); margin-bottom: 0.4rem;">
+            <strong>Programming:</strong> Python, JavaScript, SQL, HTML, CSS, Basic Data Structures &amp; Algorithms
+          </p>
+          <p style="color: var(--text-secondary); margin-bottom: 0.4rem;">
+            <strong>AI &amp; Data Analytics:</strong> Artificial Intelligence, Machine Learning, Computer Vision, Generative AI, Data Visualization
+          </p>
+          <p style="color: var(--text-secondary); margin-bottom: 0.4rem;">
+            <strong>Tools &amp; Platforms:</strong> Excel, Jupyter Notebook, Git/GitHub, QGIS, Figma
+          </p>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+            <strong>Research &amp; Spatial:</strong> Environmental AI, Satellite Image Analysis, Wetland Monitoring, Change Detection, GIS
+          </p>
+
+          <!-- Key Projects -->
+          <h4 class="resume-section-heading">Key Projects &amp; Research</h4>
+          <div style="margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: space-between;">
+              <strong style="color: var(--text-primary);">Artificial Intelligence for Wetland Monitoring and Conservation</strong>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">Lead Concept / Developer</span>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">
+              Engineered an AI framework leveraging multi-spectral satellite imagery (Sentinel-2) and in-situ sensors to detect surface water loss, vegetation indices, and illegal wetland encroachment.
+            </p>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between;">
+              <strong style="color: var(--text-primary);">Urban Wetland Guardian (Digital Twin Architecture)</strong>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">Predictive Analytics Model</span>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">
+              Conceptualized an AI digital twin predicting urban water basin degradation by modeling environmental telemetry, runoff rates, and spatial GIS mappings to trigger early conservation warnings.
+            </p>
+          </div>
+
+          <!-- Achievements & Certifications Note -->
+          <h4 class="resume-section-heading">Certifications &amp; Achievements</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">
+            Yuva AI for All (Government of India), Google Cloud Generative AI Studio, NASSCOM AI Data Engineering Analyst, and multiple hackathon recognitions for innovative solutions in web development and AI applications.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       11. CONTACT SECTION
+       ======================================================================== -->
+  <section id="contact" class="section" style="background: rgba(6, 182, 212, 0.02);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Let's Connect &amp; <span class="gradient-text">Collaborate</span></h2>
+        <p class="section-subtitle">
+          Whether you have questions about my research, an internship opportunity, or would like to collaborate on an AI project, my inbox is open!
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        
+        <!-- Contact Info Column -->
+        <div class="contact-info-col">
+          
+          <a href="mailto:gunjansah63@gmail.com" class="contact-card-item">
+            <div class="contact-icon-wrapper">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div>
+              <div class="contact-label">Email Directly</div>
+              <div class="contact-val">gunjansah63@gmail.com</div>
+            </div>
+          </a>
+
+          <a href="https://linkedin.com/in/gunjan-kumar-sah-3b0b28435" target="_blank" rel="noopener noreferrer" class="contact-card-item">
+            <div class="contact-icon-wrapper">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </div>
+            <div>
+              <div class="contact-label">LinkedIn Profile</div>
+              <div class="contact-val">https://linkedin.com/in/gunjan-kumar-sah-3b0b28435</div>
+            </div>
+          </a>
+
+          <a href="https://github.com/gunjankr-ai" target="_blank" rel="noopener noreferrer" class="contact-card-item">
+            <div class="contact-icon-wrapper">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </div>
+            <div>
+              <div class="contact-label">GitHub Repositories</div>
+              <div class="contact-val">https://github.com/gunjankr-ai</div>
+            </div>
+          </a>
+
+          <div class="glass-card" style="padding: 1.5rem; margin-top: 0.5rem;">
+            <h4 style="font-size: 1rem; color: var(--text-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+              <span class="status-dot"></span> Collaboration Readiness
+            </h4>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6;">
+              Open to undergraduate research internships, environmental AI projects, open-source development, and graduate study discussions.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Contact Form Column -->
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="form-name" class="form-label">Your Name</label>
+            <input type="text" id="form-name" class="form-input" placeholder="Example: Rahul Kumar" required>
+            <span class="form-error">Please provide your name (minimum 2 characters).</span>
+          </div>
+
+          <div class="form-group">
+            <label for="form-email" class="form-label">Your Email Address</label>
+            <input type="email" id="form-email" class="form-input" placeholder="name@domain.com" required>
+            <span class="form-error">Please provide a valid email address.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="form-subject" class="form-label">Subject</label>
+            <input type="text" id="form-subject" class="form-input" placeholder="e.g. Research Collaboration / Internship Inquiry" required>
+            <span class="form-error">Please enter a subject (minimum 3 characters).</span>
+          </div>
+
+          <div class="form-group">
+            <label for="form-message" class="form-label">Message</label>
+            <textarea id="form-message" class="form-input" rows="5" placeholder="Share the details of your inquiry, opportunity, or feedback..." required></textarea>
+            <span class="form-error">Please enter your message (minimum 10 characters).</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            Send Message
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       12. FOOTER
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span class="brand-monogram">GK</span>
+          <div style="text-align: left;">
+            <span style="font-weight: 700; color: var(--text-primary); display: block;">Gunjan Kumar</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">B.Tech CSE | AI &amp; Data Analytics</span>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <a href="mailto:gunjansah63@gmail.com" class="nav-link">Email</a>
+          <a href="https://linkedin.com/in/gunjan-kumar-sah-3b0b28435" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
+          <a href="https://github.com/gunjankr-ai" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gunjan Kumar. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem;">Designed &amp; Built for Professional AI &amp; Technology Portfolio</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button id="scroll-top-btn" class="scroll-top-btn" aria-label="Scroll to top of page">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </button>
+
+  <!-- Info / Research Paper Modal -->
+  <div class="modal-overlay" id="info-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content-box">
+      <button class="modal-close-btn" id="modal-close" aria-label="Close dialog">&times;</button>
+      <h3 id="modal-title" style="font-size: 1.35rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Research Details</h3>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toast" role="status" aria-live="polite">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+    <span class="toast-message">Message sent successfully!</span>
+  </div>
+
+  <!-- JavaScript Scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/research-flow.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
