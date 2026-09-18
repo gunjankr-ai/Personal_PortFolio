@@ -45,6 +45,7 @@ export function ProjectDossierModal({ project, onClose }: ProjectDossierModalPro
             src={project.image}
             alt={project.name}
             fill
+            sizes="(max-width: 768px) 100vw, 768px"
             className="object-contain p-4 sm:p-6"
             priority
           />

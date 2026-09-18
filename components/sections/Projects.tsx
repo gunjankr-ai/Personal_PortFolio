@@ -80,6 +80,7 @@ export function Projects() {
                     src={project.image}
                     alt={project.name}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                     className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-3 left-3">

@@ -141,6 +141,7 @@ export function Hero() {
                   src={personalInfo.avatarUrl}
                   alt={personalInfo.name}
                   fill
+                  sizes="(max-width: 640px) 256px, 288px"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   priority
                 />
