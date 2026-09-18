@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Sparkles, GraduationCap, ChevronRight, Compass, ShieldCheck, MapPin } from "lucide-react";
+import { Sparkles, GraduationCap, ChevronRight, MapPin } from "lucide-react";
 import { aboutData } from "@/lib/portfolioData";
 import { AboutMoreModal } from "@/components/modals/AboutMoreModal";
 

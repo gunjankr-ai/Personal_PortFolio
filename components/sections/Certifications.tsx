@@ -1,6 +1,6 @@
 "use client";
 
-import { Award, ExternalLink, Calendar, CheckCircle2, ShieldCheck } from "lucide-react";
+import { Award, ExternalLink, Calendar, ShieldCheck } from "lucide-react";
 import { certificationsData, achievementsData } from "@/lib/portfolioData";
 
 export function Certifications() {

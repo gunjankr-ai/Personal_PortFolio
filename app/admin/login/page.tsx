@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { ShieldCheck, Lock, ArrowRight, Loader2, ArrowLeft, Eye, EyeOff } from "lucide-react";
+import { ShieldCheck, Lock, Loader2, ArrowLeft, Eye, EyeOff } from "lucide-react";
 
 export default function AdminLoginPage() {
   const router = useRouter();

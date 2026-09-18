@@ -6,9 +6,7 @@ import {
   FolderGit2,
   ExternalLink,
   Clock,
-  Sparkles,
   Layers,
-  CheckCircle,
 } from "lucide-react";
 import { GithubIcon } from "@/components/ui/SocialIcons";
 import { projectsData } from "@/lib/portfolioData";

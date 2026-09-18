@@ -5,11 +5,8 @@ import {
   Mail,
   Send,
   Loader2,
-  CheckCircle2,
-  AlertCircle,
   Phone,
   MapPin,
-  Sparkles,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
 import { personalInfo } from "@/lib/portfolioData";

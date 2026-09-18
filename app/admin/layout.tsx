@@ -1,19 +1,12 @@
 import { getAdminSession } from "@/lib/auth";
 import Link from "next/link";
-import { ShieldCheck, LogOut, ArrowLeft, Inbox } from "lucide-react";
-import { redirect } from "next/navigation";
-import { headers } from "next/headers";
+import { ArrowLeft } from "lucide-react";
 
 export default async function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const headersList = await headers();
-  // Next.js App Router headers
-  const pathname = headersList.get("x-invoke-path") || "";
-  const isLoginPage = pathname.includes("/admin/login");
-
   const session = await getAdminSession();
 
   // If not logged in and not on login page, redirect

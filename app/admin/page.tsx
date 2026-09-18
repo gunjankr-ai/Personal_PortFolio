@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import {
   Search,
@@ -8,17 +8,11 @@ import {
   Trash2,
   CheckCircle2,
   Clock,
-  Archive,
   RefreshCw,
   LogOut,
   X,
-  Phone,
-  Calendar,
-  ExternalLink,
   Download,
-  AlertTriangle,
   Inbox,
-  Filter,
 } from "lucide-react";
 import { ContactMessageRecord } from "@/types/portfolio";
 
@@ -46,8 +40,8 @@ export default function AdminDashboardPage() {
   const [selectedMessage, setSelectedMessage] = useState<ContactMessageRecord | null>(null);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
 
-  // Fetch messages from backend API
-  const fetchMessages = async () => {
+  // Fetch messages from backend API for explicit user actions (refresh, after status update/delete)
+  const fetchMessages = useCallback(async () => {
     try {
       setLoading(true);
       const url = `/api/admin/messages?status=${statusFilter}&search=${encodeURIComponent(
@@ -72,19 +66,46 @@ export default function AdminDashboardPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [statusFilter, searchTerm, router]);
 
+  // Synchronize messages when filters or search query change
   useEffect(() => {
-    fetchMessages();
-  }, [statusFilter]);
+    let ignore = false;
+    const timer = setTimeout(async () => {
+      try {
+        const url = `/api/admin/messages?status=${statusFilter}&search=${encodeURIComponent(
+          searchTerm
+        )}`;
+        const res = await fetch(url);
 
-  // Debounced search
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      fetchMessages();
-    }, 300);
-    return () => clearTimeout(timer);
-  }, [searchTerm]);
+        if (ignore) return;
+        if (res.status === 401) {
+          router.push("/admin/login");
+          return;
+        }
+
+        const data = await res.json();
+        if (ignore) return;
+        if (data.messages) {
+          setMessages(data.messages);
+        }
+        if (data.stats) {
+          setStats(data.stats);
+        }
+      } catch (err) {
+        console.error("Failed to load messages", err);
+      } finally {
+        if (!ignore) {
+          setLoading(false);
+        }
+      }
+    }, searchTerm ? 300 : 0);
+
+    return () => {
+      ignore = true;
+      clearTimeout(timer);
+    };
+  }, [statusFilter, searchTerm, router]);
 
   // Mark status (READ, UNREAD, ARCHIVED)
   const handleUpdateStatus = async (id: string, newStatus: "READ" | "UNREAD" | "ARCHIVED") => {

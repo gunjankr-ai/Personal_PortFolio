@@ -5,11 +5,7 @@ import {
   ArrowRight,
   Download,
   Mail,
-  Sparkles,
-  Bot,
   BrainCircuit,
-  Binary,
-  Compass,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
 import { personalInfo, heroPillars } from "@/lib/portfolioData";

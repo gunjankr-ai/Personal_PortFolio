@@ -3,13 +3,7 @@
 import { useState } from "react";
 import {
   Satellite,
-  Layers,
-  ChevronRight,
   BookOpen,
-  ArrowRight,
-  CheckCircle2,
-  Sparkles,
-  Cpu,
   Milestone,
 } from "lucide-react";
 import { researchData, researchPipelineSteps } from "@/lib/portfolioData";

@@ -1,4 +1,4 @@
-import { Mail, ArrowUp, Sparkles, ShieldCheck } from "lucide-react";
+import { Mail, ArrowUp, ShieldCheck } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
 import { personalInfo } from "@/lib/portfolioData";
 import Link from "next/link";

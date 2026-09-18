@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { X, BookOpen, ExternalLink, CheckCircle2, Milestone } from "lucide-react";
+import { X, BookOpen, CheckCircle2, Milestone } from "lucide-react";
 import { GithubIcon } from "@/components/ui/SocialIcons";
 import { researchData, researchPipelineSteps } from "@/lib/portfolioData";
 

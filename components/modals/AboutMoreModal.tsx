@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { X, Compass, Target, Code, Sparkles, GraduationCap } from "lucide-react";
-import { aboutData, personalInfo } from "@/lib/portfolioData";
+import { aboutData } from "@/lib/portfolioData";
 
 interface AboutMoreModalProps {
   isOpen: boolean;
