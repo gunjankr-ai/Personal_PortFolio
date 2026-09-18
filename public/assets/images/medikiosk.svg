@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="kiosk-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#042f2e"/>
+      <stop offset="50%" stop-color="#115e59"/>
+      <stop offset="100%" stop-color="#022c22"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" rx="16" fill="url(#kiosk-bg)"/>
+
+  <!-- Left: MediKiosk Hardware Silhouette -->
+  <g transform="translate(100, 60)">
+    <!-- Stand Base -->
+    <ellipse cx="90" cy="320" rx="70" ry="16" fill="#042f2e" stroke="#14b8a6" stroke-width="1.5"/>
+    <rect x="75" y="180" width="30" height="140" fill="#0f766e" rx="4"/>
+    <!-- Terminal Screen -->
+    <rect x="20" y="20" width="140" height="170" rx="10" fill="#134e4a" stroke="#2dd4bf" stroke-width="2"/>
+    <!-- Screen Glass Display -->
+    <rect x="30" y="32" width="120" height="145" rx="6" fill="#042f2e"/>
+    <!-- Cross Icon -->
+    <rect x="85" y="45" width="10" height="30" rx="3" fill="#2dd4bf"/>
+    <rect x="75" y="55" width="30" height="10" rx="3" fill="#2dd4bf"/>
+    <!-- Vitals Reading Wave -->
+    <path d="M40 120 L60 120 L68 95 L78 135 L86 110 L94 125 L102 120 L140 120" stroke="#5eead4" stroke-width="2" fill="none"/>
+    <text x="90" y="160" font-family="sans-serif" font-size="9" font-weight="700" fill="#99f6e4" text-anchor="middle">AI TRIAGE READY</text>
+  </g>
+
+  <!-- Right: Flow Architecture & Metrics -->
+  <g transform="translate(320, 60)">
+    <rect width="400" height="320" rx="12" fill="#042f2e" fill-opacity="0.85" stroke="#14b8a6" stroke-width="1.5"/>
+    <text x="25" y="38" font-family="sans-serif" font-size="14" font-weight="700" fill="#f0fdfa">AI-MEDIKIOSK | SIH 2026</text>
+    <text x="25" y="58" font-family="sans-serif" font-size="11" fill="#99f6e4">Smart Hospital Triage &amp; Automated Appointment System</text>
+
+    <!-- Triage Feature 1 -->
+    <g transform="translate(25, 80)">
+      <rect width="350" height="50" rx="8" fill="#115e59" fill-opacity="0.5" stroke="#2dd4bf" stroke-width="1"/>
+      <circle cx="25" cy="25" r="10" fill="#14b8a6"/>
+      <text x="25" y="29" font-family="sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+      <text x="48" y="24" font-family="sans-serif" font-size="11" font-weight="600" fill="#f0fdfa">Automated Patient Vitals &amp; Symptoms Ingest</text>
+      <text x="48" y="40" font-family="sans-serif" font-size="9" fill="#99f6e4">SpO2, Pulse, Temp &amp; Voice-assisted Symptom Analysis</text>
+    </g>
+
+    <!-- Triage Feature 2 -->
+    <g transform="translate(25, 145)">
+      <rect width="350" height="50" rx="8" fill="#115e59" fill-opacity="0.5" stroke="#2dd4bf" stroke-width="1"/>
+      <circle cx="25" cy="25" r="10" fill="#0d9488"/>
+      <text x="25" y="29" font-family="sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+      <text x="48" y="24" font-family="sans-serif" font-size="11" font-weight="600" fill="#f0fdfa">Emergency Priority Classification</text>
+      <text x="48" y="40" font-family="sans-serif" font-size="9" fill="#99f6e4">Dynamic Queue Routing: Critical / Urgent / Routine</text>
+    </g>
+
+    <!-- Triage Feature 3 -->
+    <g transform="translate(25, 210)">
+      <rect width="350" height="50" rx="8" fill="#115e59" fill-opacity="0.5" stroke="#2dd4bf" stroke-width="1"/>
+      <circle cx="25" cy="25" r="10" fill="#0f766e"/>
+      <text x="25" y="29" font-family="sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+      <text x="48" y="24" font-family="sans-serif" font-size="11" font-weight="600" fill="#f0fdfa">Instant OPD Appointment Allocation</text>
+      <text x="48" y="40" font-family="sans-serif" font-size="9" fill="#99f6e4">Specialist Doctor Match &amp; Real-Time SMS Token Generation</text>
+    </g>
+
+    <g transform="translate(25, 275)">
+      <text x="0" y="18" font-family="monospace" font-size="11" fill="#5eead4">Tech: Node.js &bull; AI Diagnosis &bull; IoT Hardware &bull; Web Portal</text>
+    </g>
+  </g>
+</svg>

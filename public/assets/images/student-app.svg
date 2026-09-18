@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="edutrack-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b132b"/>
+      <stop offset="50%" stop-color="#1c2541"/>
+      <stop offset="100%" stop-color="#0b132b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" rx="16" fill="url(#edutrack-bg)"/>
+
+  <!-- Window Header Bar -->
+  <rect x="50" y="40" width="700" height="370" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+  <rect x="50" y="40" width="700" height="40" rx="12" fill="#1e293b"/>
+  <circle cx="75" cy="60" r="5" fill="#ef4444"/>
+  <circle cx="95" cy="60" r="5" fill="#f59e0b"/>
+  <circle cx="115" cy="60" r="5" fill="#10b981"/>
+  <text x="400" y="65" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600" fill="#94a3b8" text-anchor="middle">EduTrack Pro — Academic Management Console</text>
+
+  <!-- Metric Mini-Cards -->
+  <g transform="translate(80, 105)">
+    <!-- Card 1 -->
+    <rect width="180" height="70" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1"/>
+    <text x="15" y="28" font-family="sans-serif" font-size="11" fill="#94a3b8">Total Students</text>
+    <text x="15" y="55" font-family="sans-serif" font-size="20" font-weight="700" fill="#60a5fa">1,248</text>
+
+    <!-- Card 2 -->
+    <rect x="210" width="180" height="70" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
+    <text x="225" y="28" font-family="sans-serif" font-size="11" fill="#94a3b8">Avg Attendance</text>
+    <text x="225" y="55" font-family="sans-serif" font-size="20" font-weight="700" fill="#34d399">88.4%</text>
+
+    <!-- Card 3 -->
+    <rect x="420" width="190" height="70" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="435" y="28" font-family="sans-serif" font-size="11" fill="#94a3b8">Class Pass Rate</text>
+    <text x="435" y="55" font-family="sans-serif" font-size="20" font-weight="700" fill="#a78bfa">94.1%</text>
+  </g>
+
+  <!-- Table Roster Preview -->
+  <g transform="translate(80, 200)">
+    <rect width="610" height="180" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <!-- Table Header -->
+    <rect width="610" height="35" rx="8" fill="#334155" fill-opacity="0.6"/>
+    <text x="20" y="22" font-family="monospace" font-size="11" fill="#cbd5e1">STUDENT ID</text>
+    <text x="140" y="22" font-family="monospace" font-size="11" fill="#cbd5e1">NAME</text>
+    <text x="280" y="22" font-family="monospace" font-size="11" fill="#cbd5e1">COURSE</text>
+    <text x="420" y="22" font-family="monospace" font-size="11" fill="#cbd5e1">GRADE</text>
+    <text x="520" y="22" font-family="monospace" font-size="11" fill="#cbd5e1">STATUS</text>
+
+    <!-- Row 1 -->
+    <text x="20" y="65" font-family="monospace" font-size="11" fill="#94a3b8">CS-2024-001</text>
+    <text x="140" y="65" font-family="sans-serif" font-size="11" fill="#f8fafc">Ananya Sharma</text>
+    <text x="280" y="65" font-family="sans-serif" font-size="11" fill="#94a3b8">B.Tech CSE</text>
+    <text x="420" y="65" font-family="sans-serif" font-size="11" font-weight="700" fill="#34d399">A+ (92%)</text>
+    <rect x="520" y="52" width="60" height="18" rx="4" fill="#059669" fill-opacity="0.3"/>
+    <text x="550" y="65" font-family="sans-serif" font-size="9" font-weight="600" fill="#34d399" text-anchor="middle">Active</text>
+
+    <!-- Row 2 -->
+    <line x1="10" y1="85" x2="600" y2="85" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="115" font-family="monospace" font-size="11" fill="#94a3b8">CS-2024-042</text>
+    <text x="140" y="115" font-family="sans-serif" font-size="11" fill="#f8fafc">Rohan Verma</text>
+    <text x="280" y="115" font-family="sans-serif" font-size="11" fill="#94a3b8">B.Tech AI/ML</text>
+    <text x="420" y="115" font-family="sans-serif" font-size="11" font-weight="700" fill="#60a5fa">A (85%)</text>
+    <rect x="520" y="102" width="60" height="18" rx="4" fill="#059669" fill-opacity="0.3"/>
+    <text x="550" y="115" font-family="sans-serif" font-size="9" font-weight="600" fill="#34d399" text-anchor="middle">Active</text>
+
+    <!-- Row 3 -->
+    <line x1="10" y1="135" x2="600" y2="135" stroke="#334155" stroke-width="1"/>
+    <text x="20" y="160" font-family="monospace" font-size="11" fill="#94a3b8">CS-2024-108</text>
+    <text x="140" y="160" font-family="sans-serif" font-size="11" fill="#f8fafc">Vikramaditya S.</text>
+    <text x="280" y="160" font-family="sans-serif" font-size="11" fill="#94a3b8">B.Tech CSE</text>
+    <text x="420" y="160" font-family="sans-serif" font-size="11" font-weight="700" fill="#fbbf24">B (74%)</text>
+    <rect x="520" y="147" width="60" height="18" rx="4" fill="#f59e0b" fill-opacity="0.3"/>
+    <text x="550" y="160" font-family="sans-serif" font-size="9" font-weight="600" fill="#fbbf24" text-anchor="middle">Warning</text>
+  </g>
+</svg>

@@ -1,0 +1,24 @@
+// Prisma Schema for Gunjan Kumar Sah Portfolio & Admin Platform
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite" // Change to "postgresql" for Supabase / Neon deployment on Vercel
+  url      = env("DATABASE_URL")
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String
+  message   String
+  createdAt DateTime @default(now())
+  status    String   @default("UNREAD") // "UNREAD" | "READ" | "ARCHIVED"
+
+  @@index([createdAt])
+  @@index([status])
+}

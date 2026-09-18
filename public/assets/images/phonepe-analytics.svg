@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="phonepe-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#140826"/>
+      <stop offset="50%" stop-color="#2a0845"/>
+      <stop offset="100%" stop-color="#0f051d"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" rx="16" fill="url(#phonepe-bg)"/>
+
+  <!-- PhonePe Dashboard Card -->
+  <rect x="50" y="40" width="700" height="370" rx="12" fill="#1b1429" stroke="#673ab7" stroke-width="1.5"/>
+  <rect x="50" y="40" width="700" height="40" rx="12" fill="#2d1b4e"/>
+  <circle cx="75" cy="60" r="5" fill="#ef4444"/>
+  <circle cx="95" cy="60" r="5" fill="#f59e0b"/>
+  <circle cx="115" cy="60" r="5" fill="#10b981"/>
+  <text x="400" y="65" font-family="sans-serif" font-size="12" font-weight="600" fill="#e9d5ff" text-anchor="middle">PhonePe Pulse Transaction &amp; User Analytics (Power BI)</text>
+
+  <!-- Metric Panels -->
+  <g transform="translate(80, 105)">
+    <rect width="180" height="70" rx="8" fill="#261841" stroke="#9333ea" stroke-width="1"/>
+    <text x="15" y="28" font-family="sans-serif" font-size="11" fill="#d8b4fe">Total Transaction Vol</text>
+    <text x="15" y="55" font-family="sans-serif" font-size="20" font-weight="700" fill="#f3e8ff">₹42.8 Lakh Cr</text>
+
+    <rect x="210" width="180" height="70" rx="8" fill="#261841" stroke="#a855f7" stroke-width="1"/>
+    <text x="225" y="28" font-family="sans-serif" font-size="11" fill="#d8b4fe">Registered App Users</text>
+    <text x="225" y="55" font-family="sans-serif" font-size="20" font-weight="700" fill="#f3e8ff">350+ Million</text>
+
+    <rect x="420" width="190" height="70" rx="8" fill="#261841" stroke="#c084fc" stroke-width="1"/>
+    <text x="435" y="28" font-family="sans-serif" font-size="11" fill="#d8b4fe">P2P Transfer Ratio</text>
+    <text x="435" y="55" font-family="sans-serif" font-size="20" font-weight="700" fill="#f3e8ff">64.2%</text>
+  </g>
+
+  <!-- Bar Chart Representation -->
+  <g transform="translate(80, 200)">
+    <rect width="380" height="180" rx="8" fill="#221538" stroke="#3b2064" stroke-width="1"/>
+    <text x="20" y="25" font-family="sans-serif" font-size="11" font-weight="600" fill="#d8b4fe">Transaction Growth by Quarter</text>
+    
+    <!-- Bars -->
+    <rect x="35" y="110" width="40" height="50" rx="4" fill="#7e22ce"/>
+    <text x="55" y="172" font-family="monospace" font-size="10" fill="#a855f7" text-anchor="middle">Q1</text>
+    
+    <rect x="105" y="85" width="40" height="75" rx="4" fill="#9333ea"/>
+    <text x="125" y="172" font-family="monospace" font-size="10" fill="#a855f7" text-anchor="middle">Q2</text>
+    
+    <rect x="175" y="65" width="40" height="95" rx="4" fill="#a855f7"/>
+    <text x="195" y="172" font-family="monospace" font-size="10" fill="#a855f7" text-anchor="middle">Q3</text>
+    
+    <rect x="245" y="45" width="40" height="115" rx="4" fill="#c084fc"/>
+    <text x="265" y="172" font-family="monospace" font-size="10" fill="#a855f7" text-anchor="middle">Q4</text>
+    
+    <rect x="315" y="30" width="40" height="130" rx="4" fill="#e9d5ff"/>
+    <text x="335" y="172" font-family="monospace" font-size="10" fill="#a855f7" text-anchor="middle">Q1'26</text>
+  </g>
+
+  <!-- Geospatial Bubble Map Representation -->
+  <g transform="translate(480, 200)">
+    <rect width="210" height="180" rx="8" fill="#221538" stroke="#3b2064" stroke-width="1"/>
+    <text x="15" y="25" font-family="sans-serif" font-size="11" font-weight="600" fill="#d8b4fe">State-Wise Heatmap</text>
+    <circle cx="105" cy="100" r="35" fill="#a855f7" fill-opacity="0.2" stroke="#c084fc" stroke-width="1.5"/>
+    <circle cx="105" cy="100" r="15" fill="#c084fc" fill-opacity="0.6"/>
+    <circle cx="55" cy="130" r="18" fill="#9333ea" fill-opacity="0.3"/>
+    <circle cx="155" cy="80" r="22" fill="#9333ea" fill-opacity="0.4"/>
+    <text x="105" y="160" font-family="monospace" font-size="10" fill="#d8b4fe" text-anchor="middle">Top State: Maharashtra &amp; UP</text>
+  </g>
+</svg>
