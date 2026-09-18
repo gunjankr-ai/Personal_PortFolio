@@ -159,8 +159,8 @@ cp .env.example .env
 Your default `.env` will look like:
 ```env
 DATABASE_URL="file:./dev.db"
-ADMIN_PASSWORD="GunjanAdmin2026Secure!"
-ADMIN_SECRET="antigravity_gunjan_admin_session_jwt_secret_key_2026_super_safe"
+ADMIN_PASSWORD="GunjanAdmin2026Secure!231!231!@#$"
+ADMIN_SECRET="antigravity_gunjan_admin_session_jwt_secret_key_2026_super_safe_vercel_github"
 RESEND_API_KEY=""
 EMAIL_FROM="Gunjan Kumar Sah <onboarding@resend.dev>"
 EMAIL_TO="gunjansah63@gmail.com"
@@ -187,7 +187,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 1. Navigate to: [http://localhost:3000/admin](http://localhost:3000/admin)
 2. Enter the admin password configured in `.env`:
-   - Default: `GunjanAdmin2026Secure!`
+   - Default: `123eodgocgurhochdfu`
 3. You can inspect all submissions, filter unread inquiries, and reply to visitors.
 
 ---
