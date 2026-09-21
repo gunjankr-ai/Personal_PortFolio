@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import {
   X,
   UserCheck,
@@ -12,6 +12,9 @@ import {
   Eye,
   EyeOff,
   AlertCircle,
+  Briefcase,
+  Sparkles,
+  ExternalLink,
 } from "lucide-react";
 
 interface AuthUser {
@@ -47,7 +50,34 @@ export function AuthModal({
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
   const [role, setRole] = useState<"USER" | "RECRUITER">("RECRUITER");
-  const [adminPassword, setAdminPassword] = useState("");
+
+  // Password criteria computation
+  const passwordCriteria = useMemo(() => {
+    return {
+      hasLength: password.length >= 8,
+      hasUpper: /[A-Z]/.test(password),
+      hasLower: /[a-z]/.test(password),
+      hasNumber: /[0-9]/.test(password),
+      hasSpecial: /[^A-Za-z0-9]/.test(password),
+    };
+  }, [password]);
+
+  const strengthScore = useMemo(() => {
+    let score = 0;
+    if (passwordCriteria.hasLength) score += 1;
+    if (passwordCriteria.hasUpper && passwordCriteria.hasLower) score += 1;
+    if (passwordCriteria.hasNumber) score += 1;
+    if (passwordCriteria.hasSpecial) score += 1;
+    return score;
+  }, [passwordCriteria]);
+
+  const strengthLabel = useMemo(() => {
+    if (!password) return { text: "None", color: "bg-slate-700", textCol: "text-slate-400" };
+    if (strengthScore <= 1) return { text: "Weak", color: "bg-rose-500", textCol: "text-rose-400" };
+    if (strengthScore === 2) return { text: "Fair", color: "bg-amber-500", textCol: "text-amber-400" };
+    if (strengthScore === 3) return { text: "Good", color: "bg-cyan-500", textCol: "text-cyan-400" };
+    return { text: "Strong (PBKDF2 Ready)", color: "bg-emerald-500", textCol: "text-emerald-400" };
+  }, [strengthScore, password]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -66,20 +96,15 @@ export function AuthModal({
   if (!isOpen) return null;
 
   // 1-Click Demo Login
-  const handleDemoLogin = async (demoType: "recruiter" | "peer" | "admin") => {
+  const handleDemoLogin = async (demoType: "recruiter" | "peer") => {
     try {
       setLoading(true);
       setError("");
 
-      const payload =
-        demoType === "admin"
-          ? { demoType: "admin", password: adminPassword }
-          : { demoType };
-
       const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ demoType }),
       });
 
       const data = await res.json();
@@ -128,6 +153,11 @@ export function AuthModal({
   // Register Form
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters long.");
+      return;
+    }
+
     try {
       setLoading(true);
       setError("");
@@ -174,7 +204,7 @@ export function AuthModal({
                 Portfolio Authentication
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                Unlock project upvoting, guestbook &amp; admin controls
+                Unlock project upvoting, guestbook &amp; direct notes
               </p>
             </div>
           </div>
@@ -201,7 +231,7 @@ export function AuthModal({
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
             }`}
           >
-            Instant Demo
+            1-Click Demo
           </button>
           <button
             type="button"
@@ -245,7 +275,7 @@ export function AuthModal({
         {tab === "demo" && (
           <div className="p-6 pt-2 space-y-3.5">
             <div className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-              Explore authenticated interactions immediately without registering a new account:
+              Explore authenticated interactions immediately without registering a new password:
             </div>
 
             {/* Recruiter Card */}
@@ -257,7 +287,7 @@ export function AuthModal({
             >
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-xl bg-indigo-500/10 text-indigo-500 border border-indigo-500/20 flex items-center justify-center font-bold text-xs">
-                  HR
+                  <Briefcase className="w-4 h-4" />
                 </div>
                 <div>
                   <div className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-cyan-500 transition-colors">
@@ -282,7 +312,7 @@ export function AuthModal({
             >
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-xl bg-cyan-500/10 text-cyan-500 border border-cyan-500/20 flex items-center justify-center font-bold text-xs">
-                  AI
+                  <Sparkles className="w-4 h-4" />
                 </div>
                 <div>
                   <div className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-cyan-500 transition-colors">
@@ -298,34 +328,27 @@ export function AuthModal({
               </span>
             </button>
 
-            {/* Admin Gunjan Card */}
-            <div className="p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/40 space-y-2.5">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white">
-                  <ShieldCheck className="w-4 h-4 text-emerald-500" />
-                  <span>Admin Mode (Gunjan)</span>
+            {/* Admin Redirection Card */}
+            <div className="p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/40 flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 flex items-center justify-center">
+                  <ShieldCheck className="w-4 h-4" />
                 </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                  Secured
-                </span>
+                <div>
+                  <div className="text-xs font-bold text-slate-900 dark:text-white">
+                    Portfolio Admin?
+                  </div>
+                  <div className="text-[11px] text-slate-500">
+                    Gunjan Kumar Sah only
+                  </div>
+                </div>
               </div>
-              <div className="flex gap-2">
-                <input
-                  type="password"
-                  value={adminPassword}
-                  onChange={(e) => setAdminPassword(e.target.value)}
-                  placeholder="Enter Master Admin Password..."
-                  className="w-full px-3 py-1.5 text-xs rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-cyan-500"
-                />
-                <button
-                  type="button"
-                  disabled={loading || !adminPassword}
-                  onClick={() => handleDemoLogin("admin")}
-                  className="px-3.5 py-1.5 rounded-xl text-xs font-semibold text-white bg-slate-900 dark:bg-slate-700 hover:bg-slate-800 transition-colors disabled:opacity-50 shrink-0"
-                >
-                  Verify
-                </button>
-              </div>
+              <a
+                href="/admin/login"
+                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20 transition-colors"
+              >
+                <span>Admin Login &rarr;</span>
+              </a>
             </div>
           </div>
         )}
@@ -362,7 +385,7 @@ export function AuthModal({
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full pl-9 pr-9 py-2 text-xs rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                  className="w-full pl-9 pr-9 py-2 text-xs rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 font-mono"
                 />
                 <button
                   type="button"
@@ -448,32 +471,90 @@ export function AuthModal({
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                Create Password
-              </label>
+              <div className="flex items-center justify-between mb-1">
+                <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+                  Password
+                </label>
+                <span className={`text-[10px] font-mono font-semibold ${strengthLabel.textCol}`}>
+                  {strengthLabel.text}
+                </span>
+              </div>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   required
-                  minLength={6}
+                  minLength={8}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="At least 6 characters"
-                  className="w-full pl-9 pr-3 py-2 text-xs rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                  placeholder="Minimum 8 characters"
+                  className="w-full pl-9 pr-9 py-2 text-xs rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 font-mono"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                >
+                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
+
+              {/* Strength bar */}
+              <div className="mt-1.5 h-1 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden flex gap-1">
+                <div
+                  className={`h-full transition-all ${
+                    strengthScore >= 1 ? strengthLabel.color : "bg-transparent"
+                  }`}
+                  style={{ width: "25%" }}
+                />
+                <div
+                  className={`h-full transition-all ${
+                    strengthScore >= 2 ? strengthLabel.color : "bg-transparent"
+                  }`}
+                  style={{ width: "25%" }}
+                />
+                <div
+                  className={`h-full transition-all ${
+                    strengthScore >= 3 ? strengthLabel.color : "bg-transparent"
+                  }`}
+                  style={{ width: "25%" }}
+                />
+                <div
+                  className={`h-full transition-all ${
+                    strengthScore >= 4 ? strengthLabel.color : "bg-transparent"
+                  }`}
+                  style={{ width: "25%" }}
                 />
               </div>
             </div>
 
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || password.length < 8}
               className="w-full py-2.5 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 transition-all flex items-center justify-center gap-2 shadow-md disabled:opacity-50 mt-1"
             >
               {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Create Free Profile"}
             </button>
           </form>
         )}
+
+        {/* Modal Footer Links */}
+        <div className="px-6 py-3 bg-slate-50 dark:bg-slate-900/90 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-500">
+          <a
+            href="/login"
+            className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors flex items-center gap-1"
+          >
+            <span>Full Login Page</span>
+            <ExternalLink className="w-3 h-3" />
+          </a>
+          <a
+            href="/register"
+            className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors flex items-center gap-1"
+          >
+            <span>Full Register Page</span>
+            <ExternalLink className="w-3 h-3" />
+          </a>
+        </div>
       </div>
     </div>
   );
