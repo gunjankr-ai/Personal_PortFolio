@@ -25,31 +25,76 @@ export interface UserPayload {
   authenticatedAt: number;
 }
 
+const PBKDF2_ITERATIONS = 100000;
+
 /**
- * Native Web Crypto password hashing (SHA-256 + Salt)
+ * Enterprise NIST-Standard Password Hashing using PBKDF2 (100,000 rounds of SHA-256)
  */
 export async function hashPassword(password: string): Promise<string> {
   const encoder = new TextEncoder();
   const salt = crypto.randomUUID();
-  const data = encoder.encode(password + ":" + salt);
-  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const passwordKey = await crypto.subtle.importKey(
+    "raw",
+    encoder.encode(password),
+    { name: "PBKDF2" },
+    false,
+    ["deriveBits"]
+  );
+
+  const derivedBits = await crypto.subtle.deriveBits(
+    {
+      name: "PBKDF2",
+      salt: encoder.encode(salt),
+      iterations: PBKDF2_ITERATIONS,
+      hash: "SHA-256",
+    },
+    passwordKey,
+    256
+  );
+
+  const hashArray = Array.from(new Uint8Array(derivedBits));
   const hashHex = hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
-  return `${salt}:${hashHex}`;
+  return `pbkdf2:${salt}:${hashHex}`;
 }
 
 /**
- * Native Web Crypto password verification
+ * Verifies password against PBKDF2 hash (or legacy salt:hex hash)
  */
 export async function verifyPassword(password: string, storedHash: string): Promise<boolean> {
-  const [salt, expectedHash] = storedHash.split(":");
-  if (!salt || !expectedHash) return false;
-  const encoder = new TextEncoder();
-  const data = encoder.encode(password + ":" + salt);
-  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  const actualHash = hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
-  return actualHash === expectedHash;
+  const parts = storedHash.split(":");
+  if (parts.length === 3 && parts[0] === "pbkdf2") {
+    const [, salt, expectedHash] = parts;
+    const encoder = new TextEncoder();
+    const passwordKey = await crypto.subtle.importKey(
+      "raw",
+      encoder.encode(password),
+      { name: "PBKDF2" },
+      false,
+      ["deriveBits"]
+    );
+    const derivedBits = await crypto.subtle.deriveBits(
+      {
+        name: "PBKDF2",
+        salt: encoder.encode(salt),
+        iterations: PBKDF2_ITERATIONS,
+        hash: "SHA-256",
+      },
+      passwordKey,
+      256
+    );
+    const hashArray = Array.from(new Uint8Array(derivedBits));
+    const actualHash = hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
+    return actualHash === expectedHash;
+  } else if (parts.length === 2) {
+    const [salt, expectedHash] = parts;
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password + ":" + salt);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const actualHash = hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
+    return actualHash === expectedHash;
+  }
+  return false;
 }
 
 /**
@@ -191,6 +236,10 @@ export async function clearUserSessionCookie() {
  * Verifies admin password against environment variable.
  */
 export function verifyAdminPassword(password: string): boolean {
-  const expectedPassword = process.env.ADMIN_PASSWORD || "GunjanAdmin2026Secure!";
+  const expectedPassword = process.env.ADMIN_PASSWORD;
+  if (!expectedPassword) {
+    console.error("ADMIN_PASSWORD environment variable is not configured in .env!");
+    return false;
+  }
   return password === expectedPassword;
 }
