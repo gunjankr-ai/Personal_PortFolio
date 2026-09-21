@@ -6,11 +6,23 @@ import {
   Download,
   Mail,
   BrainCircuit,
+  Copy,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
 import { personalInfo, heroPillars } from "@/lib/portfolioData";
 
-export function Hero() {
+interface HeroProps {
+  onShowToast?: (message: string) => void;
+}
+
+export function Hero({ onShowToast }: HeroProps) {
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(personalInfo.email);
+    if (onShowToast) {
+      onShowToast(`Copied ${personalInfo.email} to clipboard!`);
+    }
+  };
+
   return (
     <section
       id="home"
@@ -87,7 +99,7 @@ export function Hero() {
             </div>
 
             {/* Social Proof & Quick Handles */}
-            <div className="pt-2 flex items-center justify-center lg:justify-start gap-3">
+            <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
               <a
                 href={personalInfo.github}
                 target="_blank"
@@ -119,9 +131,16 @@ export function Hero() {
                 <Mail className="w-4 h-4" />
               </a>
 
-              <span className="text-xs text-slate-400 dark:text-slate-500 font-mono ml-2 hidden sm:inline-block">
-                gunjansah63@gmail.com
-              </span>
+              {/* 1-Click Copy Email Pill */}
+              <button
+                type="button"
+                onClick={handleCopyEmail}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-600 dark:text-slate-400 hover:text-cyan-500 hover:border-cyan-500/40 transition-colors shadow-sm"
+                title="Click to copy email address"
+              >
+                <Copy className="w-3 h-3 text-cyan-500" />
+                <span>{personalInfo.email}</span>
+              </button>
             </div>
           </div>
 
@@ -138,62 +157,32 @@ export function Hero() {
                   alt={personalInfo.name}
                   fill
                   sizes="(max-width: 640px) 256px, 288px"
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover object-top hover:scale-105 transition-transform duration-500"
                   priority
                 />
+              </div>
 
-                {/* Bottom Overlay Pill on Avatar */}
-                <div className="absolute bottom-3 inset-x-3 py-1.5 px-3 rounded-xl bg-slate-950/80 backdrop-blur-md border border-white/10 text-center">
-                  <span className="text-xs font-semibold text-white tracking-wide">
-                    Gunjan Kumar Sah &bull; AI Engineer
-                  </span>
-                </div>
+              {/* Floating Verified Badge */}
+              <div className="absolute -bottom-3 -right-3 px-3 py-1 rounded-full bg-slate-900/90 border border-emerald-500/50 backdrop-blur-md text-emerald-400 text-xs font-bold shadow-lg flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                <span>MUIT Lucknow</span>
               </div>
             </div>
 
-            {/* AI Career & Research Profile Pillars Card */}
-            <div className="w-full max-w-sm p-4 rounded-2xl bg-white/70 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800/80 backdrop-blur-md shadow-lg">
-              <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-200 dark:border-slate-800">
-                <div className="flex items-center gap-2">
-                  <BrainCircuit className="w-4 h-4 text-cyan-500" />
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
-                    AI Career &amp; Research Profile
-                  </span>
-                </div>
-                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
-                  Core Pillars
-                </span>
+            {/* AI Focus Card */}
+            <div className="w-full max-w-sm p-4 rounded-2xl bg-white/70 dark:bg-slate-900/70 border border-slate-200/80 dark:border-slate-800/80 backdrop-blur-sm shadow-xl">
+              <div className="flex items-center gap-2 mb-3 text-xs font-semibold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider">
+                <BrainCircuit className="w-4 h-4" />
+                <span>Core Engineering Pillars</span>
               </div>
-
-              <div className="space-y-2">
-                {heroPillars.map((pillar, idx) => (
+              <div className="grid grid-cols-2 gap-2 text-xs">
+                {heroPillars.slice(0, 4).map((pillar) => (
                   <div
-                    key={idx}
-                    className="flex items-center justify-between p-2 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-800/60 text-xs"
+                    key={pillar.title}
+                    className="p-2 rounded-xl bg-slate-100/60 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/50 text-slate-800 dark:text-slate-200 font-medium text-center text-[11px]"
                   >
-                    <div className="flex items-center gap-2.5">
-                      <span className="text-base">{pillar.icon}</span>
-                      <div>
-                        <div className="font-semibold text-slate-800 dark:text-slate-200">
-                          {pillar.title}
-                        </div>
-                        <div className="text-[10px] text-slate-500 dark:text-slate-400">
-                          {pillar.tag}
-                        </div>
-                      </div>
-                    </div>
-
-                    <span
-                      className={`text-[10px] font-semibold px-2 py-0.5 rounded-md ${
-                        pillar.type === "ai"
-                          ? "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20"
-                          : pillar.type === "web"
-                          ? "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20"
-                          : "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
-                      }`}
-                    >
-                      {pillar.badge}
-                    </span>
+                    <span className="mr-1">{pillar.icon}</span>
+                    <span>{pillar.title}</span>
                   </div>
                 ))}
               </div>

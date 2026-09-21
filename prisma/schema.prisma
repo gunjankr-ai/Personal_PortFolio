@@ -22,3 +22,49 @@ model ContactMessage {
   @@index([createdAt])
   @@index([status])
 }
+
+model User {
+  id           String           @id @default(cuid())
+  name         String
+  email        String           @unique
+  passwordHash String?
+  role         String           @default("USER") // "USER" | "RECRUITER" | "ADMIN"
+  company      String?
+  avatar       String?
+  createdAt    DateTime         @default(now())
+  likes        ProjectLike[]
+  guestbook    GuestbookEntry[]
+
+  @@index([email])
+}
+
+model ProjectLike {
+  id        String   @id @default(cuid())
+  projectId String
+  userId    String?
+  ipAddress String?
+  createdAt DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([projectId, userId])
+  @@index([projectId])
+}
+
+model GuestbookEntry {
+  id         String   @id @default(cuid())
+  userId     String?
+  name       String
+  email      String?
+  role       String   @default("Visitor")
+  company    String?
+  content    String
+  avatar     String?
+  isApproved Boolean  @default(true)
+  createdAt  DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([createdAt])
+  @@index([isApproved])
+}

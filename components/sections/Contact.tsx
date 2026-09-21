@@ -7,6 +7,7 @@ import {
   Loader2,
   Phone,
   MapPin,
+  Copy,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
 import { personalInfo } from "@/lib/portfolioData";
@@ -30,7 +31,19 @@ const initialFormData: FormData = {
   website_bot_check: "",
 };
 
-export function Contact() {
+const quickSubjects = [
+  "Hiring Opportunity",
+  "AI / ML Consulting",
+  "Full-Stack Web Project",
+  "Research Collaboration",
+  "General Inquiry",
+];
+
+interface ContactProps {
+  onShowGlobalToast?: (message: string) => void;
+}
+
+export function Contact({ onShowGlobalToast }: ContactProps) {
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState<{
@@ -43,6 +56,14 @@ export function Contact() {
     message: "",
   });
 
+  const showNotification = (message: string, type: "success" | "error" = "success") => {
+    if (onShowGlobalToast) {
+      onShowGlobalToast(message);
+    } else {
+      setToast({ show: true, type, message });
+    }
+  };
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -50,43 +71,32 @@ export function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleCopy = (text: string, label: string) => {
+    navigator.clipboard.writeText(text);
+    showNotification(`Copied ${label} to clipboard!`);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Basic Client Validations
     if (!formData.name.trim() || formData.name.trim().length < 2) {
-      setToast({
-        show: true,
-        type: "error",
-        message: "Please provide your full name (minimum 2 characters).",
-      });
+      showNotification("Please provide your full name (minimum 2 characters).", "error");
       return;
     }
 
     if (!formData.email.trim() || !formData.email.includes("@")) {
-      setToast({
-        show: true,
-        type: "error",
-        message: "Please enter a valid email address.",
-      });
+      showNotification("Please enter a valid email address.", "error");
       return;
     }
 
     if (!formData.subject.trim() || formData.subject.trim().length < 3) {
-      setToast({
-        show: true,
-        type: "error",
-        message: "Please enter a subject (minimum 3 characters).",
-      });
+      showNotification("Please enter a subject (minimum 3 characters).", "error");
       return;
     }
 
     if (!formData.message.trim() || formData.message.trim().length < 10) {
-      setToast({
-        show: true,
-        type: "error",
-        message: "Please write a message with at least 10 characters.",
-      });
+      showNotification("Please write a message with at least 10 characters.", "error");
       return;
     }
 
@@ -106,29 +116,26 @@ export function Contact() {
       }
 
       // Success
-      setToast({
-        show: true,
-        type: "success",
-        message: data.message || "Message sent successfully! A confirmation email has been dispatched.",
-      });
+      showNotification(
+        data.message || "Message sent successfully! A confirmation email has been dispatched."
+      );
       setFormData(initialFormData);
     } catch (error: unknown) {
       const errorMessage =
         error instanceof Error
           ? error.message
           : "An unexpected error occurred. Please try again or email directly.";
-      setToast({
-        show: true,
-        type: "error",
-        message: errorMessage,
-      });
+      showNotification(errorMessage, "error");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section id="contact" className="py-20 sm:py-28 relative bg-slate-50/70 dark:bg-slate-900/40 border-t border-slate-200/80 dark:border-slate-800/80">
+    <section
+      id="contact"
+      className="py-20 sm:py-28 relative bg-slate-50/70 dark:bg-slate-900/40 border-t border-slate-200/80 dark:border-slate-800/80"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -140,45 +147,59 @@ export function Contact() {
             Let&apos;s Connect &amp; <span className="gradient-text">Collaborate</span>
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            Whether you have questions about my AI research, an internship opportunity, or full-stack software development, my inbox is always open.
+            Interested in hiring, research collaborations, or software consultation? Fill out the form below or reach out directly.
           </p>
         </div>
 
-        {/* Contact Grid */}
+        {/* Content Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Direct Channels (5 cols) */}
+          {/* Left Column: Direct Info Cards (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
-            {/* Email Card */}
-            <a
-              href={`mailto:${personalInfo.email}`}
-              className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/40 shadow-sm flex items-center gap-4 transition-all group"
-            >
-              <div className="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                <Mail className="w-6 h-6" />
-              </div>
-              <div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">Email Directly</div>
-                <div className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
-                  {personalInfo.email}
+            {/* Email Card with 1-click copy */}
+            <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between group">
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="flex items-center gap-3.5"
+              >
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                  <Mail className="w-5 h-5" />
                 </div>
-              </div>
-            </a>
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                    Email Address
+                  </h4>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-cyan-500 transition-colors">
+                    {personalInfo.email}
+                  </p>
+                </div>
+              </a>
+              <button
+                type="button"
+                onClick={() => handleCopy(personalInfo.email, "email")}
+                className="p-2 rounded-xl text-slate-400 hover:text-cyan-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                title="Copy email to clipboard"
+              >
+                <Copy className="w-4 h-4" />
+              </button>
+            </div>
 
             {/* LinkedIn Card */}
             <a
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500/40 shadow-sm flex items-center gap-4 transition-all group"
+              className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex items-center gap-3.5 group hover:border-blue-500/40 transition-all block"
             >
-              <div className="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                <LinkedinIcon className="w-6 h-6" />
+              <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                <LinkedinIcon className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">LinkedIn Profile</div>
-                <div className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  linkedin.com/in/gunjan-kumar-sah
-                </div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  LinkedIn Profile
+                </h4>
+                <p className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-blue-500 transition-colors">
+                  gunjan-kumar-sah-3b0b28435
+                </p>
               </div>
             </a>
 
@@ -187,24 +208,38 @@ export function Contact() {
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-400 shadow-sm flex items-center gap-4 transition-all group"
+              className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex items-center gap-3.5 group hover:border-cyan-500/40 transition-all block"
             >
-              <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                <GithubIcon className="w-6 h-6" />
+              <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                <GithubIcon className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">GitHub Profile</div>
-                <div className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
-                  github.com/gunjankr-ai
-                </div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  GitHub Repositories
+                </h4>
+                <p className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-cyan-500 transition-colors">
+                  gunjankr-ai
+                </p>
               </div>
             </a>
 
-            {/* Phone & Location Info */}
-            <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2 text-xs text-slate-600 dark:text-slate-400">
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-emerald-500 shrink-0" />
-                <span>{personalInfo.phone}</span>
+            {/* Phone & Location Info with 1-click copy */}
+            <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3 text-xs text-slate-600 dark:text-slate-400">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-emerald-500 shrink-0" />
+                  <span className="font-semibold text-slate-900 dark:text-white">
+                    {personalInfo.phone}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => handleCopy(personalInfo.phone, "phone number")}
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-emerald-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                  title="Copy phone to clipboard"
+                >
+                  <Copy className="w-3.5 h-3.5" />
+                </button>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-rose-500 shrink-0" />
@@ -227,9 +262,32 @@ export function Contact() {
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
               Send Me a Direct Message
             </h3>
-            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-6">
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-5">
               Submissions are stored securely and trigger an immediate notification and automated confirmation.
             </p>
+
+            {/* Quick Subject Chips */}
+            <div className="mb-4">
+              <span className="block text-[11px] font-semibold text-slate-400 mb-1.5">
+                Quick Subject Select:
+              </span>
+              <div className="flex flex-wrap gap-1.5">
+                {quickSubjects.map((sub) => (
+                  <button
+                    key={sub}
+                    type="button"
+                    onClick={() => setFormData((prev) => ({ ...prev, subject: sub }))}
+                    className={`px-2.5 py-1 text-xs rounded-lg border transition-all ${
+                      formData.subject === sub
+                        ? "bg-cyan-500/10 border-cyan-500/40 text-cyan-600 dark:text-cyan-400 font-semibold"
+                        : "bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-slate-300"
+                    }`}
+                  >
+                    {sub}
+                  </button>
+                ))}
+              </div>
+            </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Anti-spam honeypot (hidden from real users) */}
@@ -316,14 +374,20 @@ export function Contact() {
 
               {/* Message */}
               <div>
-                <label htmlFor="message" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                  Message <span className="text-rose-500">*</span>
-                </label>
+                <div className="flex items-center justify-between mb-1">
+                  <label htmlFor="message" className="block text-xs font-semibold text-slate-700 dark:text-slate-300">
+                    Message <span className="text-rose-500">*</span>
+                  </label>
+                  <span className="text-[10px] text-slate-400 font-mono">
+                    {formData.message.length} / 1000
+                  </span>
+                </div>
                 <textarea
                   id="message"
                   name="message"
                   required
                   rows={5}
+                  maxLength={1000}
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Share details about your inquiry, project scope, or opportunity..."
@@ -358,7 +422,7 @@ export function Contact() {
         </div>
       </div>
 
-      {/* Floating Toast Notification */}
+      {/* Floating Toast Notification (Local fallback) */}
       <Toast
         show={toast.show}
         type={toast.type}
